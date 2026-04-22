@@ -1,0 +1,24 @@
+{
+  "name": "E-Commerce Microservices",
+  "image": "mcr.microsoft.com/devcontainers/java:17-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "installMaven": "true",
+      "mavenVersion": "3.9.6"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "forwardPorts": [8081, 8082, 8083, 8084, 8085, 8086, 9092, 3306],
+  "portsAttributes": {
+    "8081": {"label": "auth-service"},
+    "8082": {"label": "product-service"},
+    "8083": {"label": "order-service"},
+    "8084": {"label": "payment-service"},
+    "8085": {"label": "shipping-service"},
+    "8086": {"label": "notification-service"},
+    "9092": {"label": "kafka"},
+    "3306": {"label": "mysql"}
+  }
+}
